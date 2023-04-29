@@ -1,8 +1,14 @@
-[gd_scene load_steps=158 format=2]
+[gd_scene load_steps=164 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/TerrainTileSet.png" type="Texture" id=2]
 [ext_resource path="res://Levels/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://parallax/parallax-03.png" type="Texture" id=4]
+[ext_resource path="res://parallax/parallax-01.png" type="Texture" id=5]
+[ext_resource path="res://parallax/parallax-00.png" type="Texture" id=6]
+[ext_resource path="res://parallax/parallax-02.png" type="Texture" id=7]
+[ext_resource path="res://parallax/parallax-04.png" type="Texture" id=8]
+[ext_resource path="res://Levels/ParallaxLayer2.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1388,10 +1394,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=153]
-extents = Vector2( 10, 198 )
+extents = Vector2( 16.25, 214.5 )
 
 [sub_resource type="RectangleShape2D" id=154]
-extents = Vector2( 10, 979.938 )
+extents = Vector2( 13.9939, 1464.47 )
 
 [node name="DemoLevel" type="Node2D"]
 position = Vector2( 91, 202 )
@@ -1432,10 +1438,66 @@ position = Vector2( -5, -189 )
 shape = SubResource( 153 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1935, -189 )
+position = Vector2( 2893.25, -191.5 )
 shape = SubResource( 153 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 965, -397 )
+position = Vector2( 1449.53, -400.997 )
 rotation = 1.57079
 shape = SubResource( 154 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 913, 180 )
+scale = Vector2( 1.27917, 1.34444 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1440, 360 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1440, 0 )
+script = ExtResource( 9 )
+
+[node name="Parallax-01" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 712, 110 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1440, 360 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="Parallax-02" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 727, 117 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1440, 360 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="Parallax-03" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 712, 113 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1440, 360 )
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 726, 225 )
+scale = Vector2( 1.005, 0.520019 )
+texture = ExtResource( 8 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+format = 1
