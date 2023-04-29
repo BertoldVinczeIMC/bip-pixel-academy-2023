@@ -14,7 +14,7 @@
 
 ## Introduction
 
-This project is a part of the [Heilbronn 2023 BIP event](https://www.heilbronn.de/bip2023) and is a collaboration between [Hochschule Heilbronn](https://www.hs-heilbronn.de/de), [Fachhochschule Krems]() and [Thomas More University](https://www.thomasmore.be/en/welcome)
+This project is a part of the [Heilbronn 2023 BIP event](https://www.heilbronn.de/bip2023) and is a collaboration between [Hochschule Heilbronn](https://www.hs-heilbronn.de/de), [Fachhochschule Krems](https://www.fh-krems.ac.at) and [Thomas More University](https://www.thomasmore.be/en/welcome)
 
 tbd.
 
