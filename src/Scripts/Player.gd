@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal collided
+
 #State Vars
 var states = ["idle", "run", "dash", "fall", "jump", "double_jump"] #list of all states
 var currentState = states[0] #what state's logic is being called every frame
@@ -88,8 +90,6 @@ func _ready():
 	doubleJumpVelocity = -sqrt(2 * gravity * doubleJumpHeight) 
 	
 	wallJumpVelocity = -sqrt(2 * gravity * jumpHeight)
-	$Camera2D._auto_set_limits()
-
 
 func _physics_process(delta):
 	get_input()
@@ -103,6 +103,12 @@ func _physics_process(delta):
 	recover_sprite_scale()
 	
 	PlayerSprite.flip_h = lastDirection - 1 #flip sprite depending on which direction you last moved in
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			if is_on_ceiling():
+				emit_signal('collided', collision)
 
 func get_input():
 	#set input vars
