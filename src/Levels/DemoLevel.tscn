@@ -1394,10 +1394,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=153]
-extents = Vector2( 16.25, 214.5 )
+extents = Vector2( 10, 270 )
 
 [sub_resource type="RectangleShape2D" id=154]
-extents = Vector2( 13.9939, 1464.47 )
+extents = Vector2( 10, 979.938 )
 
 [node name="DemoLevel" type="Node2D"]
 position = Vector2( 91, 202 )
@@ -1424,7 +1424,7 @@ editor_draw_drag_margin = true
 script = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]
-position = Vector2( -91, -186 )
+position = Vector2( -91, -162 )
 tile_set = SubResource( 152 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -1434,15 +1434,15 @@ tile_data = PoolIntArray( 65572, 0, 262159, 131108, 0, 327695, 196644, 0, 327695
 position = Vector2( -96, 125 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -5, -189 )
+position = Vector2( -5, -237 )
 shape = SubResource( 153 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 2893.25, -191.5 )
+position = Vector2( 1935, -237 )
 shape = SubResource( 153 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1449.53, -400.997 )
+position = Vector2( 965, -517 )
 rotation = 1.57079
 shape = SubResource( 154 )
 
@@ -1452,9 +1452,10 @@ shape = SubResource( 154 )
 motion_mirroring = Vector2( 1440, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 913, 180 )
-scale = Vector2( 1.27917, 1.34444 )
+position = Vector2( 0, -180 )
+scale = Vector2( 1, 1.5 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1440, 360 )
 
@@ -1463,9 +1464,9 @@ motion_scale = Vector2( 0.1, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 script = ExtResource( 9 )
 
-[node name="Parallax-01" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 712, 110 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource( 5 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1440, 360 )
 
@@ -1473,9 +1474,9 @@ region_rect = Rect2( 0, 0, 1440, 360 )
 motion_scale = Vector2( 0.1, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 
-[node name="Parallax-02" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 727, 117 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 texture = ExtResource( 7 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1440, 360 )
 
@@ -1483,9 +1484,9 @@ region_rect = Rect2( 0, 0, 1440, 360 )
 motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 
-[node name="Parallax-03" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2( 712, 113 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
 texture = ExtResource( 4 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1440, 360 )
 
@@ -1495,9 +1496,7 @@ region_rect = Rect2( 0, 0, 1440, 360 )
 motion_mirroring = Vector2( 1440, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 726, 225 )
-scale = Vector2( 1.005, 0.520019 )
 texture = ExtResource( 8 )
-
-[node name="TileMap2" type="TileMap" parent="."]
-format = 1
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1440, 360 )
