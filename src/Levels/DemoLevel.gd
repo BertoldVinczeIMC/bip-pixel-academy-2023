@@ -1,6 +1,9 @@
 extends Node2D
 
+var BackgroundMusic = preload("res://Music/01 Tea Is Served!.mp3")
+
 func _on_Area2D_body_entered(body):
+	stop_music()
 	get_tree().change_scene("res://Levels/DemoLevel.tscn")
 
 
@@ -13,3 +16,12 @@ func _on_Player_collided(collision):
 		if tile_id >= 0:
 			var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
 			print(tile_name)
+
+func _process(delta):
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.stream = BackgroundMusic
+		$AudioStreamPlayer2D.play()
+
+func stop_music():
+	$AudioStreamPlayer2D.stream_paused = true
+	$AudioStreamPlayer2D.stop()
