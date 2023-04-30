@@ -121,6 +121,7 @@ frame = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.83739, 3.97225 )
+scale = Vector2( 0.8, 1 )
 shape = SubResource( 1 )
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
