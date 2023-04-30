@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemap/Tiles.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://parallax/parallax-01.png" type="Texture" id=5]
 [ext_resource path="res://parallax/parallax-00.png" type="Texture" id=6]
 [ext_resource path="res://parallax/parallax-02.png" type="Texture" id=7]
+[ext_resource path="res://UI/FloatyText.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/ParallaxLayer2.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=153]
@@ -115,6 +116,9 @@ position = Vector2( 91, 139 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 869, 218 )
 shape = SubResource( 155 )
+
+[node name="FloatyText" parent="." instance=ExtResource( 8 )]
+position = Vector2( 56, 151 )
 
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
