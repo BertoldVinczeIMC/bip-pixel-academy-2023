@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bip-logo-standalone-64x64.png-ebb28d79071689f7d913b390301cd725.stex"
+path="res://.import/arrow.png-5405b2f4a5090f6ebaea005362d7d52b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://IntroScreen/bip-logo-standalone-64x64.png"
-dest_files=[ "res://.import/bip-logo-standalone-64x64.png-ebb28d79071689f7d913b390301cd725.stex" ]
+source_file="res://Sprites/arrow.png"
+dest_files=[ "res://.import/arrow.png-5405b2f4a5090f6ebaea005362d7d52b.stex" ]
 
 [params]
 

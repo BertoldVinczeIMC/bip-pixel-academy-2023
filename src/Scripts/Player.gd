@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal collided
+signal downPressed
 
 #State Vars
 var states = ["idle", "run", "dash", "fall", "jump", "double_jump"] #list of all states
@@ -37,6 +38,7 @@ var coyoteDuration = 100 #how many miliseconds to remember a jump press
 var jumpInput = 0 #jump press with coyote time
 
 var isDashPressed #will be 1 on the frame that the dash button was pressed
+var isDownPressed
 
 #Movement Vars
 var velocity = Vector2.ZERO #linear velocity applied to move and slide
@@ -109,7 +111,9 @@ func _physics_process(delta):
 		if collision:
 			if is_on_ceiling():
 				emit_signal('collided', collision)
-
+			if is_on_floor():
+				if isDownPressed:
+					emit_signal('downPressed', collision)
 func get_input():
 	#set input vars
 	movementInput = Input.get_action_strength("right") - Input.get_action_strength("left") #set movement input to 1,-1, or 0
@@ -134,6 +138,8 @@ func get_input():
 		coyoteStartTime = 0 #reset timer
 	
 	isDashPressed = Input.is_action_just_pressed("dash")
+	
+	isDownPressed = Input.is_action_just_pressed("down")
 
 
 func apply_gravity(delta):

@@ -15,32 +15,32 @@ margin_bottom = 270.0
 color = Color( 0.188235, 0.32549, 0.552941, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 79.0
-margin_top = 17.0
-margin_right = 401.0
-margin_bottom = 253.0
+margin_left = 60.0
+margin_top = 10.0
+margin_right = 420.0
+margin_bottom = 260.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
 [node name="Presented by" type="Label" parent="VBoxContainer"]
-margin_right = 322.0
-margin_bottom = 50.0
+margin_right = 360.0
+margin_bottom = 57.0
 custom_fonts/font = ExtResource( 1 )
 text = "Presented by"
 align = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_top = 54.0
-margin_right = 322.0
-margin_bottom = 182.0
+margin_top = 61.0
+margin_right = 360.0
+margin_bottom = 189.0
 texture = ExtResource( 2 )
 stretch_mode = 6
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 186.0
-margin_right = 322.0
-margin_bottom = 236.0
+margin_top = 193.0
+margin_right = 360.0
+margin_bottom = 250.0
 custom_fonts/font = ExtResource( 1 )
 text = "Pixel Academy"
 align = 1
