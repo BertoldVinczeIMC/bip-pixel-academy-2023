@@ -1,0 +1,44 @@
+{
+    "Completed": false,
+    "Modules": [
+        {
+            "Title":"Basic Python Syntax",
+            "Content":[
+                "Indentation refers to the spaces at the beginning of a code line.",
+                "Indentation is VERY important when using Python"
+            ],
+            "QuestionPool":[
+                {
+                    "Question":"What is the correct indentation for Python?",
+                    "Answers":[
+                        "4 spaces",
+                        "2 spaces",
+                        "1 tab",
+                        "3 spaces"
+                    ],
+                    "CorrectAnswer":"4 spaces"
+                },
+                {
+                    "Question":"What is the correct indentation for Python?",
+                    "Answers":[
+                        "4 spaces",
+                        "2 spaces",
+                        "1 tab",
+                        "3 spaces"
+                    ],
+                    "CorrectAnswer":"4 spaces"
+                },
+                {
+                    "Question":"What is the correct indentation for Python?",
+                    "Answers":[
+                        "4 spaces",
+                        "2 spaces",
+                        "1 tab",
+                        "3 spaces"
+                    ],
+                    "CorrectAnswer":"4 spaces"
+                }
+            ]
+        }
+    ]
+}
