@@ -15,6 +15,7 @@
 ## Introduction
 
 This project is a part of the [Heilbronn 2023 BIP event](https://www.heilbronn.de/bip2023) and is a collaboration between [Hochschule Heilbronn](https://www.hs-heilbronn.de/de), [Fachhochschule Krems](https://www.fh-krems.ac.at) and [Thomas More University](https://www.thomasmore.be/en/welcome)
+The game is hosted on itch.io: https://pixel-academy.itch.io/pixel-academy but self-hosting is also possible.
 
 tbd.
 
@@ -22,16 +23,21 @@ tbd.
 
 ### Prerequisites
 
-tbd.
+- [Godot 3 LTS](https://godotengine.org/download/3.x/windows)
 
 ### Setup
 
-tbd.
+1. Clone the repository
+```bash	
+git clone gh repo clone BertoldVinczeIMC/bip-pixel-academy-2023
+```
 
 ## Usage
 
 ### Running the application
-tbd.
+1. Open the projects bin folder
+2. Open PixelAcademy.html
+3. Enjoy the game
 
 ### Running the tests
 tbd.
