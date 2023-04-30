@@ -16,7 +16,8 @@ func _on_Player_collided(collision):
 		var tile_id = collision.collider.get_cellv(tile_pos)
 		if tile_id >= 0:
 			var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
-			if tile_name == "I DID IT!":
+			print(tile_name)
+			if tile_name == "NES - Super Mario Bros - Tileset.png 70":
 				MessageLabel.text = "This is a custom message haha"
 				MessageBox.position = Vector2(collision.position.x-50, collision.position.y+150)
 
