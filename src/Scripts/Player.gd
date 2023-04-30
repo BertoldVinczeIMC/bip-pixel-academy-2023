@@ -446,3 +446,5 @@ func wall_jump_logic(delta):
 
 func wall_jump_exit_logic():
 	canDash = true #allow the players to dash again if they wall jump
+	
+

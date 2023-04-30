@@ -3,6 +3,7 @@ extends Node2D
 onready var MessageBox = get_node("FloatyText")
 onready var MessageLabel = MessageBox.get_child(0)
 
+
 var BackgroundMusic = preload("res://Music/01 Tea Is Served!.mp3")
 var Section = 1
 
