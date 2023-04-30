@@ -1,4 +1,4 @@
-{
+    {
     "Completed": false,
     "Modules": [
         {
@@ -11,32 +11,32 @@
                 {
                     "Question":"What is the correct indentation for Python?",
                     "Answers":[
-                        "4 spaces",
+                        "1 space",
                         "2 spaces",
-                        "1 tab",
-                        "3 spaces"
+                        "4 spaces",
+                        "Indentation is not important in python"
                     ],
                     "CorrectAnswer":"4 spaces"
                 },
                 {
-                    "Question":"What is the correct indentation for Python?",
+                    "Question":"What character is used for putting lines of code in comment using Python?",
                     "Answers":[
-                        "4 spaces",
-                        "2 spaces",
-                        "1 tab",
-                        "3 spaces"
+                        "/*",
+                        "@",
+                        "#",
+                        "()"
                     ],
-                    "CorrectAnswer":"4 spaces"
+                    "CorrectAnswer":"#"
                 },
                 {
-                    "Question":"What is the correct indentation for Python?",
+                    "Question":"Which line of code is correct using Python ?",
                     "Answers":[
-                        "4 spaces",
-                        "2 spaces",
-                        "1 tab",
-                        "3 spaces"
+                        "x: 20",
+                        "x = twenty",
+                        "x = 20",
+                        "x = (20)"
                     ],
-                    "CorrectAnswer":"4 spaces"
+                    "CorrectAnswer":"x = 20"
                 }
             ]
         }
