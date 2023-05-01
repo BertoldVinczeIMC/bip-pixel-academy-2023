@@ -68,3 +68,15 @@ func _on_Area2DQuiz_body_entered(body):
 	$Player/Camera2D.limit_right = 2595
 	$Player.position.x = 2175
 	$Player.position.y = 260
+
+
+func _on_enemyblop_touch():
+	print("signal")
+	queue_free()
+	get_tree().change_scene("res://Levels/DemoLevel.tscn")
+	
+
+
+func _on_enemyblop2_touch():
+	queue_free()
+	get_tree().change_scene("res://Levels/DemoLevel.tscn")

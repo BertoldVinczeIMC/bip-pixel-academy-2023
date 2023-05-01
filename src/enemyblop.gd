@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+signal touch
 
 var speed = 50
 var direction = Vector2.RIGHT
@@ -33,6 +34,7 @@ func _on_top_checker_body_entered(body):
 
 func _on_side_checker_body_entered(body):
 	print("ouch")
+	emit_signal('touch')
 		
 	
 	

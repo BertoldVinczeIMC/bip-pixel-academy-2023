@@ -244,3 +244,5 @@ position = Vector2( 53, 0 )
 [connection signal="downPressed" from="Player" to="." method="_on_Player_downPressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2DQuiz" to="." method="_on_Area2DQuiz_body_entered"]
+[connection signal="touch" from="enemies/enemyblop" to="." method="_on_enemyblop_touch"]
+[connection signal="touch" from="enemies/enemyblop2" to="." method="_on_enemyblop2_touch"]
