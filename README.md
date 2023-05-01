@@ -1,11 +1,11 @@
-<div style="display: flex; align-items: center;">
-  <img src="bip-logo-standalone.png" alt="image" style="width: 200px; margin-right: 20px;">
-  <div style="flex: 1;">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div style="margin-bottom: 20px;">
+    <img src="bip-logo-standalone.png" alt="image" style="width: 200px;">
+  </div>
+  <div>
     <h1>Pixel Academy - Heilbronn 2023 BIP event</h1>
   </div>
 </div>
-
-<hr><br>
 
 ## Table of contents
 
