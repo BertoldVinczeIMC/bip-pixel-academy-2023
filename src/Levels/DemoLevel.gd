@@ -9,6 +9,8 @@ var hintSound = preload("res://SoundFX/hint.wav")
 var pipeSound = preload("res://SoundFX/pipe.wav")
 var Section = 1
 
+onready var music = ProjectSettings.get_setting("music")
+		
 func _on_Area2D_body_entered(body):
 	stop_music()
 	queue_free()
@@ -29,7 +31,7 @@ func _on_Player_collided(collision):
 				$SoundEffects.play()
 
 func _process(delta):
-	if !$AudioStreamPlayer.is_playing():
+	if !$AudioStreamPlayer.is_playing() && music == true:
 		$AudioStreamPlayer.stream = BackgroundMusic
 		$AudioStreamPlayer.play()
 
@@ -83,8 +85,7 @@ func _on_enemyblop_touch():
 	queue_free()
 	get_tree().change_scene("res://Levels/DemoLevel.tscn")
 	
-
-
+	
 func _on_enemyblop2_touch():
 	queue_free()
 	get_tree().change_scene("res://Levels/DemoLevel.tscn")
