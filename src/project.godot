@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="PlatformerTemplate(v2)"
-run/main_scene="res://MainMenu/MainMenu.tscn"
+run/main_scene="res://IntroScreen/IntroScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [display]
 
@@ -26,6 +30,10 @@ window/stretch/aspect="keep"
 [editor_plugins]
 
 enabled=PoolStringArray(  )
+
+[global]
+
+main=false
 
 [input]
 
@@ -63,6 +71,12 @@ right={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
 
 [rendering]
 

@@ -1,0 +1,14 @@
+[
+    {
+        "CourseId": 1,
+        "CourseName": "Python for Beginners",
+        "CourseDescription": "Learn Python from scratch while playing",
+        "NumberOfModules": 10
+    },
+    {
+        "CourseId": 2,
+        "CourseName": "Random course without modules",
+        "CourseDescription": "Lorem Ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut labore et dolore magna aliqua",
+        "NumberOfModules": 5
+    }
+]

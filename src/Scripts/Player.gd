@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal collided
+signal downPressed
+
 #State Vars
 var states = ["idle", "run", "dash", "fall", "jump", "double_jump"] #list of all states
 var currentState = states[0] #what state's logic is being called every frame
@@ -35,6 +38,7 @@ var coyoteDuration = 100 #how many miliseconds to remember a jump press
 var jumpInput = 0 #jump press with coyote time
 
 var isDashPressed #will be 1 on the frame that the dash button was pressed
+var isDownPressed
 
 #Movement Vars
 var velocity = Vector2.ZERO #linear velocity applied to move and slide
@@ -80,6 +84,8 @@ var wallSlideSpeed = 50 #how fast you slide on a wll
 var wallJumpHeight = 128 #how high you want the peak of your wall jump to be in pixels
 var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 
+#sounds
+var jumpSound = preload("res://SoundFX/jump.wav")
 
 #functions
 func _ready():
@@ -88,8 +94,6 @@ func _ready():
 	doubleJumpVelocity = -sqrt(2 * gravity * doubleJumpHeight) 
 	
 	wallJumpVelocity = -sqrt(2 * gravity * jumpHeight)
-	$Camera2D._auto_set_limits()
-
 
 func _physics_process(delta):
 	get_input()
@@ -103,7 +107,15 @@ func _physics_process(delta):
 	recover_sprite_scale()
 	
 	PlayerSprite.flip_h = lastDirection - 1 #flip sprite depending on which direction you last moved in
-
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			if is_on_ceiling():
+				emit_signal('collided', collision)
+			if is_on_floor():
+				if isDownPressed:
+					emit_signal('downPressed', collision)
 func get_input():
 	#set input vars
 	movementInput = Input.get_action_strength("right") - Input.get_action_strength("left") #set movement input to 1,-1, or 0
@@ -128,6 +140,8 @@ func get_input():
 		coyoteStartTime = 0 #reset timer
 	
 	isDashPressed = Input.is_action_just_pressed("dash")
+	
+	isDownPressed = Input.is_action_just_pressed("down")
 
 
 func apply_gravity(delta):
@@ -169,6 +183,8 @@ func jump(jumpVelocity):
 	velocity.y = 0 #reset velocity
 	velocity.y = jumpVelocity #apply velocity
 	canDash = true #allow the player to dash when they jump
+	get_parent().get_node("./SoundEffects").stream  = jumpSound
+	get_parent().get_node("./SoundEffects").play()
 	
 	squash_stretch(jumpingSquash, jumpingStretch) #set squaash and stretch
 #State Functions
@@ -434,3 +450,5 @@ func wall_jump_logic(delta):
 
 func wall_jump_exit_logic():
 	canDash = true #allow the players to dash again if they wall jump
+	
+

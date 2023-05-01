@@ -1,6 +1,7 @@
 extends MarginContainer
 
 const demo_level = preload("res://Levels/DemoLevel.tscn")
+const options = preload("res://Options/Options.tscn")
 
 onready var selector_one = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var selector_two = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
@@ -26,7 +27,8 @@ func handle_selection(_current_selection):
 		get_parent().add_child(demo_level.instance())
 		queue_free()
 	elif _current_selection == 1:
-		print("Add options!")
+		get_parent().add_child(options.instance())
+		queue_free()
 	elif _current_selection == 2:
 		get_tree().quit()
 

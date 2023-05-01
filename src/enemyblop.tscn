@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/enemies/slimeBlue_squashed.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/enemies/slimeBlue_blue.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/enemies/slimeBlue.png" type="Texture" id=3]
+[ext_resource path="res://enemyblop.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "crawl",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "squashed",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 5.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7, 1.75 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12, 4 )
+
+[node name="enemyblop" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 177, 297 )
+scale = Vector2( 0.441176, 0.441176 )
+frames = SubResource( 1 )
+animation = "crawl"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 177, 298.5 )
+shape = SubResource( 2 )
+
+[node name="top_checker" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_checker"]
+position = Vector2( 177, 290.75 )
+shape = SubResource( 3 )
+
+[node name="side_checker" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="side_checker"]
+position = Vector2( 177, 299 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="top_checker" to="." method="_on_top_checker_body_entered"]
+[connection signal="body_entered" from="side_checker" to="." method="_on_side_checker_body_entered"]

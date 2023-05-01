@@ -1,0 +1,36 @@
+    {
+    "Completed": false,
+    "Modules": [
+        {
+            "Title":"Basic Python Syntax",
+            "Content":[
+                "Indentation is VERY important when using Python",
+                "Indentation refers to the spaces at the beginning of a code line.",
+                "Python uses 4 spaces to indent code lines.",
+                "Put a # before a line of code to comment out that line of code."
+            ],
+            "QuestionPool":[
+                {
+                    "Question":"What is the correct indentation for Python?",
+                    "Answers":[
+                        "1 space",
+                        "2 spaces",
+                        "4 spaces",
+                        "Indentation is not important in python"
+                    ],
+                    "CorrectAnswer":"4 spaces"
+                },
+                {
+                    "Question":"What character is used for putting lines of code in comment using Python?",
+                    "Answers":[
+                        "/*",
+                        "@",
+                        "#",
+                        "()"
+                    ],
+                    "CorrectAnswer":"#"
+                }
+            ]
+        }
+    ]
+}

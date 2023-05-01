@@ -1,0 +1,147 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MainMenu/Chikarego.tres" type="DynamicFont" id=1]
+[ext_resource path="res://IntroScreen/bip-logo-standalone.png" type="Texture" id=2]
+[ext_resource path="res://Options/Options.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://MainMenu/ChiKareGo2.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 38
+font_data = SubResource( 1 )
+
+[node name="Options" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 480.0
+margin_bottom = 270.0
+color = Color( 0.188235, 0.32549, 0.552941, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+margin_right = 480.0
+margin_bottom = 270.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+margin_left = 28.0
+margin_top = 35.0
+margin_right = 451.0
+margin_bottom = 234.0
+custom_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 423.0
+margin_bottom = 57.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 423.0
+margin_bottom = 57.0
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 59.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 59, 0 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 63.0
+margin_right = 423.0
+margin_bottom = 57.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Pixel Academy"
+align = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 77.0
+margin_right = 423.0
+margin_bottom = 199.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 113.0
+margin_right = 310.0
+margin_bottom = 122.0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 197.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 197.0
+margin_bottom = 40.0
+
+[node name="OptionName2" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_top = 1.0
+margin_right = 117.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 117, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Music"
+
+[node name="CheckButton" type="CheckButton" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 121.0
+margin_right = 197.0
+margin_bottom = 40.0
+pressed = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 44.0
+margin_right = 197.0
+margin_bottom = 81.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_left = 27.0
+margin_right = 170.0
+margin_bottom = 37.0
+
+[node name="Selector" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 17, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 21.0
+margin_right = 143.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 14, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Resume"
+
+[node name="CenterContainer3" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 85.0
+margin_right = 197.0
+margin_bottom = 122.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_left = 29.0
+margin_right = 167.0
+margin_bottom = 37.0
+
+[node name="Selector" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 17, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_left = 21.0
+margin_right = 138.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 117, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+
+[connection signal="toggled" from="ColorRect/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]
