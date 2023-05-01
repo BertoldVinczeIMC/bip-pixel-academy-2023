@@ -27,8 +27,9 @@ func _physics_process(delta):
 
 func _on_side_checker_body_entered(body):
 	print("ouch")
-	emit_signal('touch')
-		
+	Global.lose_life()
+	queue_free()
+
 	
 	
 

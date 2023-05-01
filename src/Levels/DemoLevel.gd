@@ -20,6 +20,7 @@ func _on_Area2D_body_entered(body):
 	stop_music()
 	queue_free()
 	get_tree().change_scene("res://Levels/DemoLevel.tscn")
+	Global.lose_life()
 
 func _on_Player_collided(collision):
 	if collision.collider is TileMap:
