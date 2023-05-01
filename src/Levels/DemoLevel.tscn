@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemap/Tiles.tres" type="TileSet" id=2]
@@ -9,9 +9,20 @@
 [ext_resource path="res://parallax/parallax-02.png" type="Texture" id=7]
 [ext_resource path="res://UI/FloatyText.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/ParallaxLayer2.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/hud_heartFull.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/hud_heartEmpty.png" type="Texture" id=11]
 [ext_resource path="res://MainMenu/Chikarego.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Sprites/arrow.png" type="Texture" id=13]
 [ext_resource path="res://enemyblop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/CanvasLayer.gd" type="Script" id=15]
+[ext_resource path="res://Levels/Label.gd" type="Script" id=16]
+
+[sub_resource type="StyleBoxFlat" id=163]
+bg_color = Color( 0, 0, 0, 0.360784 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="RectangleShape2D" id=153]
 extents = Vector2( 10, 194.672 )
@@ -57,6 +68,72 @@ smoothing_speed = 3.0
 drag_margin_bottom = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+visible = false
+script = ExtResource( 15 )
+
+[node name="Panel" type="Panel" parent="Player/Camera2D/CanvasLayer"]
+margin_left = 10.0
+margin_top = -107.0
+margin_right = 104.0
+margin_bottom = -67.0
+custom_styles/panel = SubResource( 163 )
+
+[node name="HeartsFull" type="TextureRect" parent="Player/Camera2D/CanvasLayer"]
+margin_left = 20.0
+margin_top = -97.0
+margin_right = 179.0
+margin_bottom = -53.0
+rect_scale = Vector2( 0.454, 0.454 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 2
+
+[node name="HeartsEmpty" type="TextureRect" parent="Player/Camera2D/CanvasLayer"]
+margin_left = 20.0
+margin_top = -97.0
+margin_right = 179.0
+margin_bottom = -53.0
+rect_scale = Vector2( 0.454, 0.454 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Player"]
+margin_left = -22.0
+margin_top = -32.0
+margin_right = 18.0
+margin_bottom = -18.0
+script = ExtResource( 16 )
+
+[node name="Panel" type="Panel" parent="Player/Label"]
+margin_left = 6.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 12.0
+custom_styles/panel = SubResource( 163 )
+
+[node name="HeartsFull" type="TextureRect" parent="Player/Label"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 167.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.117, 0.117 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 2
+
+[node name="HeartsEmpty" type="TextureRect" parent="Player/Label"]
+visible = false
+margin_left = 7.0
+margin_top = 4.0
+margin_right = 166.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.124, 0.117 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 2
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]
 tile_set = ExtResource( 2 )
@@ -130,6 +207,7 @@ position = Vector2( 309.5, 38 )
 shape = SubResource( 162 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 3, -302 )
@@ -170,6 +248,7 @@ motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 1440, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 0, 1 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
@@ -183,7 +262,7 @@ position = Vector2( 869, 218 )
 shape = SubResource( 155 )
 
 [node name="FloatyText" parent="." instance=ExtResource( 8 )]
-position = Vector2( 56, 151 )
+position = Vector2( 57, 153 )
 
 [node name="Area2DQuiz" type="Area2D" parent="."]
 
