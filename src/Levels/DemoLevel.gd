@@ -36,6 +36,14 @@ func _on_Player_collided(collision):
 				$SoundEffects.play()
 
 func _process(delta):
+	# Check if the Escape key is pressed
+	if Input.is_key_pressed(KEY_ESCAPE):
+		# Get the scene tree
+		var tree = get_tree()
+		# Switch to a different screen
+		tree.change_scene("res://MainMenu/MainMenu.tscn")
+		queue_free()
+	
 	if !$AudioStreamPlayer.is_playing():
 		$AudioStreamPlayer.stream = BackgroundMusic
 		$AudioStreamPlayer.play()
