@@ -15,7 +15,11 @@ func _ready():
 	print("5 seconds have passed")
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 	
-	
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		# This code will be executed when the left mouse button is clicked
+		print("skip intro screen = true")
+		get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
