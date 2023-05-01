@@ -5,6 +5,8 @@ onready var MessageLabel = MessageBox.get_child(0)
 
 
 var BackgroundMusic = preload("res://Music/01 Tea Is Served!.mp3")
+var hintSound = preload("res://SoundFX/hint.wav")
+var pipeSound = preload("res://SoundFX/pipe.wav")
 var Section = 1
 
 func _on_Area2D_body_entered(body):
@@ -23,31 +25,37 @@ func _on_Player_collided(collision):
 			if tile_name == "NES - Super Mario Bros - Tileset.png 70":
 				MessageLabel.text = "This is a custom message haha"
 				MessageBox.position = Vector2(collision.position.x-50, collision.position.y+150)
+				$SoundEffects.stream = hintSound
+				$SoundEffects.play()
 
 func _process(delta):
-	if !$AudioStreamPlayer2D.is_playing():
-		$AudioStreamPlayer2D.stream = BackgroundMusic
-		$AudioStreamPlayer2D.play()
+	if !$AudioStreamPlayer.is_playing():
+		$AudioStreamPlayer.stream = BackgroundMusic
+		$AudioStreamPlayer.play()
 
 func stop_music():
-	$AudioStreamPlayer2D.stream_paused = true
-	$AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer.stream_paused = true
+	$AudioStreamPlayer.stop()
 
 
 func _on_Player_downPressed(collision):
 	if collision.collider is TileMap:
+		$SoundEffects.stream = pipeSound
 		var tile_pos = collision.collider.world_to_map($Player.position)
 		tile_pos -= collision.normal # Colliding tile
 		var tile_id = collision.collider.get_cellv(tile_pos)
 		if tile_id == -1:
 			tile_pos.x = tile_pos.x - 1
 			tile_id = collision.collider.get_cellv(tile_pos)
+			$SoundEffects.play()
 		if tile_id == 12: 
 			Section = 1
+			$SoundEffects.play()
 			stop_music()
 			queue_free()
 			get_tree().change_scene("res://Levels/DemoLevel.tscn")
 		if tile_id == 76:
+			$SoundEffects.play()
 			if Section == 2: 
 				Section = 3
 				$Player/Camera2D.limit_left = 2803
