@@ -237,8 +237,6 @@ position = Vector2( 59, -64 )
 [node name="enemyblop2" parent="enemies" instance=ExtResource( 14 )]
 position = Vector2( 53, 0 )
 
-[node name="MobSound" type="AudioStreamPlayer" parent="enemies"]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
