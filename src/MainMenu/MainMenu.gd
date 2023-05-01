@@ -26,7 +26,7 @@ func handle_selection(_current_selection):
 		get_parent().add_child(demo_level.instance())
 		queue_free()
 	elif _current_selection == 1:
-		print("Add options!")
+		get_tree().change_scene("res://OptionScreen/OptionScreen.tscn")
 	elif _current_selection == 2:
 		get_tree().quit()
 
