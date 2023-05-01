@@ -6,6 +6,8 @@ var speed = 50
 var direction = Vector2.RIGHT
 var velocity = Vector2.ZERO
 
+var killSound = preload("res://SoundFX/kill_mobv2.wav")
+
 
 func _ready():
 	if direction == Vector2.RIGHT:
@@ -33,6 +35,8 @@ func _on_side_checker_body_entered(body):
 
 func _on_top_checker_body_entered(body):
 	$AnimatedSprite.play("squashed")
+	get_parent().get_parent().get_node("./SoundEffects").stream = killSound
+	get_parent().get_parent().get_node("./SoundEffects").play()
 	speed = 0
 	set_collision_layer_bit(3,false)
 	set_collision_mask_bit(2,false)
@@ -41,3 +45,4 @@ func _on_top_checker_body_entered(body):
 	$side_checker.set_collision_layer_bit(3,false)
 	$side_checker.set_collision_mask_bit(2,false)
 	queue_free()
+	
