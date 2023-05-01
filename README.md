@@ -15,7 +15,7 @@
 ## Introduction
 
 This project is a part of the [Heilbronn 2023 BIP event](https://www.heilbronn.de/bip2023) and is a collaboration between [Hochschule Heilbronn](https://www.hs-heilbronn.de/de), [Fachhochschule Krems](https://www.fh-krems.ac.at) and [Thomas More University](https://www.thomasmore.be/en/welcome)
-The game is hosted on itch.io: https://pixel-academy.itch.io/pixel-academy but self-hosting is also possible.
+The game is hosted on [itch.io](https://p422l.itch.io/pixel-academy) but self-hosting is also possible.
 
 tbd.
 
@@ -43,6 +43,13 @@ git clone gh repo clone BertoldVinczeIMC/bip-pixel-academy-2023
 tbd.
 
 ## Contributing
+- [ArthurHann](https://github.com/ArthurHann)
+- [BertoldVinczeIMC](https://github.com/ArthurHann)
+- [pbrostean](https://github.com/pbrostean)
+- [Stoneymon](https://github.com/Stoneymon)
+- [marnikmaes](https://github.com/marnikmaes)
+- [syandelbart](https://github.com/syandelbart)
+
 tbd.
 
 ## License
