@@ -84,6 +84,8 @@ var wallSlideSpeed = 50 #how fast you slide on a wll
 var wallJumpHeight = 128 #how high you want the peak of your wall jump to be in pixels
 var wallJumpVelocity #how much to apply to velocity.y to reach wall jump height
 
+#sounds
+var jumpSound = preload("res://SoundFX/jump.wav")
 
 #functions
 func _ready():
@@ -181,6 +183,8 @@ func jump(jumpVelocity):
 	velocity.y = 0 #reset velocity
 	velocity.y = jumpVelocity #apply velocity
 	canDash = true #allow the player to dash when they jump
+	get_parent().get_node("./SoundEffects").stream  = jumpSound
+	get_parent().get_node("./SoundEffects").play()
 	
 	squash_stretch(jumpingSquash, jumpingStretch) #set squaash and stretch
 #State Functions
