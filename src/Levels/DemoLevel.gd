@@ -10,6 +10,11 @@ var pipeSound = preload("res://SoundFX/pipe.wav")
 var Section = 1
 
 onready var music = ProjectSettings.get_setting("music")
+
+func _ready():
+	if music == false:
+		$AudioStreamPlayer.volume_db = -80
+		$SoundEffects.volume_db = -80
 		
 func _on_Area2D_body_entered(body):
 	stop_music()
@@ -31,7 +36,7 @@ func _on_Player_collided(collision):
 				$SoundEffects.play()
 
 func _process(delta):
-	if !$AudioStreamPlayer.is_playing() && music == true:
+	if !$AudioStreamPlayer.is_playing():
 		$AudioStreamPlayer.stream = BackgroundMusic
 		$AudioStreamPlayer.play()
 
