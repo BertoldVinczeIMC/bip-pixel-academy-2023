@@ -21,6 +21,16 @@ func _physics_process(delta):
 	move_and_slide(velocity, Vector2.UP)
 
 
+
+
+func _on_side_checker_body_entered(body):
+	print("ouch")
+	emit_signal('touch')
+		
+	
+	
+
+
 func _on_top_checker_body_entered(body):
 	$AnimatedSprite.play("squashed")
 	speed = 0
@@ -30,11 +40,4 @@ func _on_top_checker_body_entered(body):
 	$top_checker.set_collision_mask_bit(2,false)
 	$side_checker.set_collision_layer_bit(3,false)
 	$side_checker.set_collision_mask_bit(2,false)
-
-
-func _on_side_checker_body_entered(body):
-	print("ouch")
-	emit_signal('touch')
-		
-	
-	
+	queue_free()
