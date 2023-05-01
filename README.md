@@ -1,4 +1,11 @@
-# Pixel Academy - Heilbronn 2023 BIP event
+<div style="display: flex; align-items: center;">
+  <img src="bip-logo-standalone.png" alt="image" style="width: 200px; margin-right: 20px;">
+  <div style="flex: 1;">
+    <h1>Pixel Academy - Heilbronn 2023 BIP event</h1>
+  </div>
+</div>
+
+<hr><br>
 
 ## Table of contents
 
