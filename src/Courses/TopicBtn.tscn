@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Courses/TopicBtn.gd" type="Script" id=1]
+
+[node name="TopicBtn" type="Button"]
+margin_right = 80.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 80, 50 )
+script = ExtResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_TopicBtn_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_TopicBtn_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_TopicBtn_pressed"]

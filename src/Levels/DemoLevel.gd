@@ -3,20 +3,16 @@ extends Node2D
 onready var MessageBox = get_node("FloatyText")
 onready var MessageLabel = MessageBox.get_child(0)
 
-
-var BackgroundMusic = preload("res://Music/01 Tea Is Served!.mp3")
+var BackgroundMusic = preload("res://Music/super-mario-lofi.mp3")
 var hintSound = preload("res://SoundFX/hint.wav")
 var pipeSound = preload("res://SoundFX/pipe.wav")
 var Section = 1
 
-onready var music = ProjectSettings.get_setting("music")
-
 func _ready():
-	if music == false:
-		$AudioStreamPlayer.volume_db = -80
-		$SoundEffects.volume_db = -80
+	$AudioStreamPlayer.stream = BackgroundMusic
+	$AudioStreamPlayer.play()
 		
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	stop_music()
 	queue_free()
 	get_tree().change_scene("res://Levels/DemoLevel.tscn")
@@ -35,19 +31,6 @@ func _on_Player_collided(collision):
 				MessageBox.position = Vector2(collision.position.x-50, collision.position.y+150)
 				$SoundEffects.stream = hintSound
 				$SoundEffects.play()
-
-func _process(delta):
-	# Check if the Escape key is pressed
-	if Input.is_key_pressed(KEY_ESCAPE):
-		# Get the scene tree
-		var tree = get_tree()
-		# Switch to a different screen
-		tree.change_scene("res://MainMenu/MainMenu.tscn")
-		queue_free()
-	
-	if !$AudioStreamPlayer.is_playing():
-		$AudioStreamPlayer.stream = BackgroundMusic
-		$AudioStreamPlayer.play()
 
 func stop_music():
 	$AudioStreamPlayer.stream_paused = true
@@ -86,7 +69,7 @@ func _on_Player_downPressed(collision):
 				$Player.position.y = 260
 				return
 
-func _on_Area2DQuiz_body_entered(body):
+func _on_Area2DQuiz_body_entered(_body):
 	Section = 2
 	$Player/Camera2D.limit_left = 2115
 	$Player/Camera2D.limit_right = 2595

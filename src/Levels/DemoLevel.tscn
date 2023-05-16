@@ -11,12 +11,11 @@
 [ext_resource path="res://Levels/ParallaxLayer2.gd" type="Script" id=9]
 [ext_resource path="res://Sprites/hud_heartFull.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/hud_heartEmpty.png" type="Texture" id=11]
-[ext_resource path="res://MainMenu/Chikarego.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Sprites/Chikarego.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Sprites/arrow.png" type="Texture" id=13]
-[ext_resource path="res://enemyblop.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Levels/CanvasLayer.gd" type="Script" id=15]
-[ext_resource path="res://Levels/Label.gd" type="Script" id=16]
-[ext_resource path="res://Levels/Area2D.gd" type="Script" id=17]
+[ext_resource path="res://Objects/enemyblop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Hearts.gd" type="Script" id=16]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=18]
 
 [sub_resource type="StyleBoxFlat" id=163]
 bg_color = Color( 0, 0, 0, 0.360784 )
@@ -39,6 +38,25 @@ extents = Vector2( 3.5, 2.5 )
 
 [sub_resource type="RectangleShape2D" id=162]
 extents = Vector2( 1.5, 2 )
+
+[sub_resource type="GDScript" id=164]
+script/source = "extends Area2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
 
 [sub_resource type="RectangleShape2D" id=155]
 extents = Vector2( 980, 10 )
@@ -70,53 +88,21 @@ drag_margin_bottom = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
-visible = false
-script = ExtResource( 15 )
-
-[node name="Panel" type="Panel" parent="Player/Camera2D/CanvasLayer"]
-margin_left = 10.0
-margin_top = -107.0
-margin_right = 104.0
-margin_bottom = -67.0
-custom_styles/panel = SubResource( 163 )
-
-[node name="HeartsFull" type="TextureRect" parent="Player/Camera2D/CanvasLayer"]
-margin_left = 20.0
-margin_top = -97.0
-margin_right = 179.0
-margin_bottom = -53.0
-rect_scale = Vector2( 0.454, 0.454 )
-texture = ExtResource( 10 )
-expand = true
-stretch_mode = 2
-
-[node name="HeartsEmpty" type="TextureRect" parent="Player/Camera2D/CanvasLayer"]
-visible = false
-margin_left = 20.0
-margin_top = -97.0
-margin_right = 179.0
-margin_bottom = -53.0
-rect_scale = Vector2( 0.454, 0.454 )
-texture = ExtResource( 11 )
-expand = true
-stretch_mode = 2
-
-[node name="Label" type="Label" parent="Player"]
+[node name="Hearts" type="Label" parent="Player"]
 margin_left = -22.0
 margin_top = -32.0
 margin_right = 18.0
 margin_bottom = -18.0
 script = ExtResource( 16 )
 
-[node name="Panel" type="Panel" parent="Player/Label"]
+[node name="Panel" type="Panel" parent="Player/Hearts"]
 margin_left = 6.0
 margin_top = 1.0
 margin_right = 28.0
 margin_bottom = 12.0
 custom_styles/panel = SubResource( 163 )
 
-[node name="HeartsFull" type="TextureRect" parent="Player/Label"]
+[node name="HeartsFull" type="TextureRect" parent="Player/Hearts"]
 margin_left = 8.0
 margin_top = 4.0
 margin_right = 167.0
@@ -126,7 +112,7 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 2
 
-[node name="HeartsEmpty" type="TextureRect" parent="Player/Label"]
+[node name="HeartsEmpty" type="TextureRect" parent="Player/Hearts"]
 visible = false
 margin_left = 7.0
 margin_top = 4.0
@@ -208,6 +194,8 @@ shape = SubResource( 161 )
 position = Vector2( 309.5, 38 )
 shape = SubResource( 162 )
 
+[node name="GUI" parent="." instance=ExtResource( 18 )]
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -255,20 +243,20 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1440, 360 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DeathBorder" type="Area2D" parent="."]
 position = Vector2( 91, 139 )
-script = ExtResource( 17 )
+script = SubResource( 164 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBorder"]
 position = Vector2( 869, 218 )
 shape = SubResource( 155 )
 
 [node name="FloatyText" parent="." instance=ExtResource( 8 )]
 position = Vector2( 57, 153 )
 
-[node name="Area2DQuiz" type="Area2D" parent="."]
+[node name="QuizBorder" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DQuiz"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuizBorder"]
 position = Vector2( 1931, 137.5 )
 shape = SubResource( 159 )
 
@@ -319,12 +307,12 @@ position = Vector2( 59, -64 )
 position = Vector2( 53, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+bus = "Sound Effects"
 
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
 [connection signal="downPressed" from="Player" to="." method="_on_Player_downPressed"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Area2DQuiz" to="." method="_on_Area2DQuiz_body_entered"]
-[connection signal="touch" from="enemies/enemyblop" to="." method="_on_enemyblop_touch"]
-[connection signal="touch" from="enemies/enemyblop2" to="." method="_on_enemyblop2_touch"]
+[connection signal="body_entered" from="DeathBorder" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="QuizBorder" to="." method="_on_Area2DQuiz_body_entered"]

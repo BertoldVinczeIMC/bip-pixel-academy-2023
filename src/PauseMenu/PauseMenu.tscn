@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://PauseMenu/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Chikarego.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/ChiKareGo2.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.188235, 0.32549, 0.552941, 0.686275 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 152.0
+margin_top = 30.0
+margin_right = 328.0
+margin_bottom = 239.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 2 )
+text = "Paused"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 61.0
+margin_right = 176.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="ResumeBtn" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 176.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 1 )
+text = "Resume Game"
+
+[node name="MusicBtn" type="CheckButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 176.0
+margin_bottom = 140.0
+focus_mode = 0
+custom_fonts/font = SubResource( 1 )
+enabled_focus_mode = 0
+text = "Music"
+
+[node name="SoundBtn" type="CheckButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 176.0
+margin_bottom = 184.0
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Sound Effects"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 176.0
+margin_bottom = 209.0
+
+[node name="MenuBtn" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 86.0
+margin_bottom = 21.0
+size_flags_horizontal = 11
+custom_fonts/font = SubResource( 3 )
+text = "Menu"
+
+[node name="QuitBtn" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 176.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/MusicBtn" to="." method="_on_MusicBtn_toggled"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/SoundBtn" to="." method="_on_SoundBtn_toggled"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/MenuBtn" to="." method="_on_MenuBtn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]
