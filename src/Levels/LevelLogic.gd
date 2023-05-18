@@ -13,47 +13,45 @@ func _ready():
 	$AudioStreamPlayer.play()
 		
 func _on_Area2D_body_entered(_body):
-	stop_music()
-	queue_free()
-	get_tree().change_scene("res://Levels/DemoLevel.tscn")
+	$Player.position = $Player.groundPosition
 	Global.lose_life()
 
 func _on_Player_collided(collision):
 	if collision.collider is TileMap:
+		var tile_offset = 0
 		var tile_pos = collision.collider.world_to_map($Player.position)
 		tile_pos -= collision.normal # Colliding tile
 		var tile_id = collision.collider.get_cellv(tile_pos)
-		if tile_id >= 0:
-			var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
-			print(tile_name)
-			if tile_name == "NES - Super Mario Bros - Tileset.png 70":
-				MessageLabel.text = "This is a custom message haha"
-				MessageBox.position = Vector2(collision.position.x-50, collision.position.y+150)
-				$SoundEffects.stream = hintSound
-				$SoundEffects.play()
-
-func stop_music():
-	$AudioStreamPlayer.stream_paused = true
-	$AudioStreamPlayer.stop()
-
+		if tile_id == -1:
+			tile_pos.x -= 1
+			tile_id = collision.collider.get_cellv(tile_pos)
+			tile_offset = -1
+			if tile_id == -1:
+				tile_pos.x += 2
+				tile_id = collision.collider.get_cellv(tile_pos)
+				tile_offset = 1
+		var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
+		print(tile_name)
+		if tile_name == "Question Mark Block":
+			MessageLabel.text = "This is a custom message haha"
+			MessageBox.position = Vector2(collision.position.x-50, collision.position.y+150)
+			$SoundEffects.stream = hintSound
+			$SoundEffects.play()
 
 func _on_Player_downPressed(collision):
+	$SoundEffects.stream = pipeSound
 	if collision.collider is TileMap:
-		$SoundEffects.stream = pipeSound
 		var tile_pos = collision.collider.world_to_map($Player.position)
 		tile_pos -= collision.normal # Colliding tile
 		var tile_id = collision.collider.get_cellv(tile_pos)
 		if tile_id == -1:
 			tile_pos.x = tile_pos.x - 1
 			tile_id = collision.collider.get_cellv(tile_pos)
+		var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
+		if tile_name == "Wrong Pipe":
 			$SoundEffects.play()
-		if tile_id == 12: 
-			Section = 1
-			$SoundEffects.play()
-			stop_music()
-			queue_free()
-			get_tree().change_scene("res://Levels/DemoLevel.tscn")
-		if tile_id == 76:
+			Global.lose_life()
+		if tile_name == "Right Pipe":
 			$SoundEffects.play()
 			if Section == 2: 
 				Section = 3
@@ -75,14 +73,3 @@ func _on_Area2DQuiz_body_entered(_body):
 	$Player/Camera2D.limit_right = 2595
 	$Player.position.x = 2175
 	$Player.position.y = 260
-
-
-func _on_enemyblop_touch():
-	print("signal")
-	queue_free()
-	get_tree().change_scene("res://Levels/DemoLevel.tscn")
-	
-	
-func _on_enemyblop2_touch():
-	queue_free()
-	get_tree().change_scene("res://Levels/DemoLevel.tscn")

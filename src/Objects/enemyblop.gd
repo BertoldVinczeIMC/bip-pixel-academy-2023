@@ -21,7 +21,6 @@ func _physics_process(_delta):
 	move_and_slide(velocity, Vector2.UP)
 
 func _on_side_checker_body_entered(_body):
-	print("ouch")
 	Global.lose_life()
 	queue_free()
 

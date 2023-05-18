@@ -75,7 +75,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 5 )
 text = "1"
-topic_path = "res://Levels/DemoLevel.tscn"
+topic_path = "res://Levels/Python/Level1/Level1.tscn"
 
 [node name="Topic2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
 margin_left = 135.0

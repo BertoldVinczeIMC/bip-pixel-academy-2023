@@ -8,6 +8,8 @@ var states = ["idle", "run", "dash", "fall", "jump", "double_jump"] #list of all
 var currentState = states[0] #what state's logic is being called every frame
 var previousState = null #last state that was being calles
 
+var groundPosition = Vector2.ZERO
+
 #Nodes & paths
 onready var PlayerSprite = $Sprite #path to the player's sprite
 onready var Anim = $AnimationPlayer #path to animation player
@@ -240,6 +242,8 @@ func run_logic(_delta):
 		move_horizontally(0)
 	
 func run_exit_logic():
+	groundPosition = position
+	groundPosition.x = groundPosition.x - 10
 	pass
 
 
@@ -280,7 +284,7 @@ func fall_logic(_delta):
 		
 		squash_stretch(landingSquash, landingStretch) #apply squash and stretch
 		
-	if LeftRaycast.is_colliding() && movementInput == -1 || RightRaycast.is_colliding() && movementInput == 1:
+	if LeftRaycast.is_colliding() && LeftRaycast.get_collider().get_class() != "StaticBody2D" && movementInput == -1 || RightRaycast.is_colliding() && RightRaycast.get_collider().get_class() != "StaticBody2D" && movementInput == 1:
 		#if your raycast is coliding and you are trying to move in that direction
 		set_state("wall_slide")
 	
@@ -387,7 +391,7 @@ func wall_slide_enter_logic():
 func wall_slide_logic(_delta):
 	velocity.y = wallSlideSpeed #override apply_gravity and apply a constant slide speed
 	
-	if LeftRaycast.is_colliding() && movementInput != -1 || RightRaycast.is_colliding() && movementInput != 1:
+	if LeftRaycast.is_colliding() && movementInput != -1 || RightRaycast.is_colliding() &&  movementInput != 1:
 		#if your raycast is coliding and you are trying to move in that direction
 		jumpBufferStartTime = OS.get_ticks_msec() #start jump buffer timer
 		set_state("fall") #set state to fall

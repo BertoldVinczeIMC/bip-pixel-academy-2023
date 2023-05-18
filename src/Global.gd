@@ -8,5 +8,5 @@ func lose_life():
 	lives -= 1
 	hud.load_hearts()
 	if lives == 0:
-		get_tree().change_scene("res://Levels/DemoLevel.tscn")
+		get_tree().reload_current_scene()
 		Global.lives = max_lives
