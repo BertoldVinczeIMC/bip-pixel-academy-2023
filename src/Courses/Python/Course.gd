@@ -7,22 +7,22 @@ func _ready():
 	description.text = declaration
 
 func _on_Topic1_mouse_entered():
-	description.text = "Topic1 Description"
+	description.text = "Basic Python Syntax"
 
 func _on_Topic2_mouse_entered():
-	description.text = "Topic2 Description"
+	description.text = "Python Variables"
 
 func _on_Topic3_mouse_entered():
-	description.text = "Topic3 Description"
+	description.text = "Python Data Types"
 
 func _on_Topic4_mouse_entered():
-	description.text = "Topic4 Description"
+	description.text = "Coming soon..."
 
 func _on_Topic5_mouse_entered():
-	description.text = "Topic5 Description"
+	description.text = "Coming soon..."
 
 func _on_Topic6_mouse_entered():
-	description.text = "Topic6 Description"
+	description.text = "Coming soon..."
 
 func _on_Topic1_mouse_exited():
 	description.text = declaration

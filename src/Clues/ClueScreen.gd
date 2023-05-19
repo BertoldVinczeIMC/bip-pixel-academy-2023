@@ -11,6 +11,6 @@ func set_is_paused(value):
 	visible = is_paused
 
 func _input(event):
-	if Input.is_key_pressed(KEY_ESCAPE):
-		self.is_paused = !is_paused
-		get_tree().set_input_as_handled()
+	if is_paused:
+		if Input.is_key_pressed(KEY_ESCAPE):
+			get_tree().set_input_as_handled()
