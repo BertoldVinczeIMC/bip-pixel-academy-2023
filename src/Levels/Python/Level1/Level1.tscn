@@ -7,11 +7,11 @@
 [ext_resource path="res://Parallax/parallax-01.png" type="Texture" id=5]
 [ext_resource path="res://Parallax/parallax-00.png" type="Texture" id=6]
 [ext_resource path="res://Parallax/parallax-02.png" type="Texture" id=7]
-[ext_resource path="res://UI/FloatyText.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Levels/ParallaxLayer.gd" type="Script" id=9]
 [ext_resource path="res://Sprites/hud_heartFull.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/hud_heartEmpty.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Chikarego.tres" type="DynamicFont" id=12]
+[ext_resource path="res://UI/ClueScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/enemyblop.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Hearts.gd" type="Script" id=16]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=18]
@@ -130,6 +130,8 @@ shape = SubResource( 153 )
 position = Vector2( 3951, -122.328 )
 shape = SubResource( 153 )
 
+[node name="ClueScreen" parent="." instance=ExtResource( 13 )]
+
 [node name="GUI" parent="." instance=ExtResource( 18 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -193,8 +195,6 @@ shape = SubResource( 155 )
 position = Vector2( 1933, 137.5 )
 shape = SubResource( 159 )
 
-[node name="FloatyText" parent="." instance=ExtResource( 8 )]
-
 [node name="GoodJobText" type="Label" parent="."]
 margin_left = 3533.0
 margin_top = 80.0
@@ -215,11 +215,13 @@ position = Vector2( 232, -48 )
 position = Vector2( 1428, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 bus = "Music"
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 bus = "Sound Effects"
 
+[connection signal="clue" from="." to="ClueScreen" method="_on_Level1_clue"]
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
 [connection signal="downPressed" from="Player" to="." method="_on_Player_downPressed"]
 [connection signal="body_entered" from="DeathBorder" to="." method="_on_Area2D_body_entered"]
