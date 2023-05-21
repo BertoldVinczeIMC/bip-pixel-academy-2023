@@ -18,9 +18,9 @@ var questions = [question1, question2, question3]
 func _ready():
 	randomize()
 	questions.shuffle()
-	$Question1/Label.text = questions[0][0]
-	$Question2/Label.text = questions[1][0]
-	$Question3/Label.text = questions[2][0]
+	$Question1/Label.text = "Question 1/3:\n" + questions[0][0]
+	$Question2/Label.text = "Question 2/3:\n" + questions[1][0]
+	$Question3/Label.text = "Question 3/3:\n" + questions[2][0]
 
 	get_parent().set_right_pipe(1, questions[0][1])
 	get_parent().set_right_pipe(2, questions[1][1])
