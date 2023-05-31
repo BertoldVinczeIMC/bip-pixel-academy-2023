@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilemap/Tilemap.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Levels/Python/Level1/Questions.gd" type="Script" id=12]
 [ext_resource path="res://UI/ClueScreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/enemyblop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Python/Level1/ClueScreen.gd" type="Script" id=15]
 [ext_resource path="res://Levels/Hearts.gd" type="Script" id=16]
 [ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=18]
 
@@ -133,6 +134,7 @@ position = Vector2( 3951, -122.328 )
 shape = SubResource( 153 )
 
 [node name="ClueScreen" parent="." instance=ExtResource( 13 )]
+script = ExtResource( 15 )
 
 [node name="GUI" parent="." instance=ExtResource( 18 )]
 
@@ -236,7 +238,7 @@ bus = "Music"
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 bus = "Sound Effects"
 
-[connection signal="clue" from="." to="ClueScreen" method="_on_Level1_clue"]
+[connection signal="clue" from="." to="ClueScreen" method="_on_clue"]
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
 [connection signal="downPressed" from="Player" to="." method="_on_Player_downPressed"]
 [connection signal="body_entered" from="DeathBorder" to="." method="_on_Area2D_body_entered"]

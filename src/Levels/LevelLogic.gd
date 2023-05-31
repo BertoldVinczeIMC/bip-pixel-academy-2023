@@ -11,6 +11,8 @@ signal clue
 func _ready():
 	$AudioStreamPlayer.stream = BackgroundMusic
 	$AudioStreamPlayer.play()
+	Global.lives = 3
+	$Player/Hearts.load_hearts()
 		
 func _on_Area2D_body_entered(_body):
 	$Player.position = $Player.groundPosition
@@ -29,11 +31,11 @@ func _on_Player_collided(collision):
 				tile_id = collision.collider.get_cellv(tile_pos)
 		var tile_name = collision.collider.tile_set.tile_get_name(tile_id)
 		if tile_name == "Question Mark Block":
+			$TileMap.set_cell(tile_pos.x, tile_pos.y, -1)
 			$SoundEffects.stream = hintSound
 			$SoundEffects.play()
 			yield($SoundEffects, "finished")
 			emit_signal("clue")
-			$TileMap.set_cell(tile_pos.x, tile_pos.y, -1)
 
 func _on_Player_downPressed(collision):
 	$SoundEffects.stream = pipeSound

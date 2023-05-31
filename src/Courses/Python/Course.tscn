@@ -84,6 +84,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 5 )
 text = "2"
+topic_path = "res://Levels/Python/Level2/Level2.tscn"
 
 [node name="Topic3" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
 margin_left = 258.0
@@ -92,6 +93,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 5 )
 text = "3"
+topic_path = "res://Levels/Python/Level3/Level3.tscn"
 
 [node name="Topic4" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
 margin_left = 12.0

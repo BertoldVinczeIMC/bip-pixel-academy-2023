@@ -13,7 +13,7 @@ func _on_Python_mouse_exited():
 	description.text = declaration
 
 func _on_Placeholder_mouse_entered():
-	description.text = "Placeholder Course Description"
+	description.text = "Coming soon..."
 
 func _on_Placeholder_mouse_exited():
 	description.text = declaration

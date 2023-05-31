@@ -17,7 +17,7 @@ func _ready():
 	randomize()
 	clues.shuffle()
 
-func _on_Level1_clue():
+func _on_clue():
 	if clues.size() > 0:
 		$ClueScreen.set_is_paused(true)
 		$ClueScreen/CenterContainer/VBoxContainer/ClueText.text = clues[0]
