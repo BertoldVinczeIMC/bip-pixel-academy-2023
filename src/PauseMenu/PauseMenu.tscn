@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PauseMenu/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Chikarego.tres" type="DynamicFont" id=2]
@@ -11,6 +11,12 @@ font_data = ExtResource( 3 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="Control"]
@@ -36,6 +42,7 @@ margin_bottom = 239.0
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 176.0
 margin_bottom = 57.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Paused"
 align = 1
@@ -91,6 +98,38 @@ margin_bottom = 21.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
+
+[node name="MovementDash" type="Label" parent="."]
+anchor_bottom = 1.0
+margin_left = 40.0
+rect_pivot_offset = Vector2( -256, 27 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Movement:
+W
+A S D
+
+Dash:
+Shift"
+align = 1
+valign = 1
+
+[node name="JumpDoubleJump" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -129.0
+margin_right = -40.0
+rect_pivot_offset = Vector2( -256, 27 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Jump:
+SPACE
+
+Double Jump:
+2x SPACE"
+align = 1
+valign = 1
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/MusicBtn" to="." method="_on_MusicBtn_toggled"]
