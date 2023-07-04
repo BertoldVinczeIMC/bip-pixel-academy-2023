@@ -1,30 +1,22 @@
 extends Node
 
+var timer = null
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	ProjectSettings.set_setting("music",true)
-	# Wait for 5 seconds
-	yield(get_tree().create_timer(3.0), "timeout")
+	start_timer()
 
-	# Do something after 5 seconds
-	print("5 seconds have passed")
-	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
-	
+func start_timer():
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 3.0
+	timer.connect("timeout", self, "_onTimerTimeout")
+	timer.start()
+
+func _onTimerTimeout():
+	get_tree().change_scene("res://CourseSelection/CourseSelectScreen.tscn")
+
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		# This code will be executed when the left mouse button is clicked
-		print("skip intro screen = true")
-		get_tree().change_scene("res://MainMenu/MainMenu.tscn")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-	
+	if Input.is_key_pressed(KEY_ENTER) || Input.is_mouse_button_pressed(BUTTON_LEFT):
+		if timer != null:
+			timer.queue_free()
+		get_tree().change_scene("res://CourseSelection/CourseSelectScreen.tscn")
